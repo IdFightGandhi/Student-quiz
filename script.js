@@ -138,5 +138,26 @@ function renderScores(){
 function showForm() {
     document.getElementById("hs-text").style.visibility = "visible";
 
-    
+    var submitBtn = document.createElement("button");
+    submitBtn.textContent = "Submit"
+    highScores.appendChild(submitBtn);
+    startButton.addEventListener("submit", function(event) {
+        event.preventDefault
+        var highScoreText = highScores.value;
+
+        if(highScoreText === "") {
+            return;
+        };
+
+        scoreList.push(highScoreText);
+        enterInfo.value = ""
+    });
+
+    startButton.addEventListener("click", function() {
+        content.textContent = "";
+        getQuestion();
+        startTimer();
+    });
+
+
 }
