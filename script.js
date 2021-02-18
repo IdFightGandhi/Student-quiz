@@ -1,9 +1,13 @@
-var main
-
-
-
-
-
+var main = document.getElementById('main');
+var startButton = document.getElementById('startBtn');
+var timer = document.getElementById('timer');
+var score = document.getElementById('score');
+var result = document.getElementById('result');
+var enterStats = document.getElementById('hs-text').style.visibility = "hidden";
+var highScores = document.getElementById('hScores');
+var hsList = [];
+var currentScore = 0;
+var timeLeft = 30;
 
 // this is the array of questions that will be used
 var myQuestions = [
@@ -54,6 +58,27 @@ var myQuestions = [
 
     }
 ];
+
+// This function will be the index for the question set
+var currentQuestionIndex = 0;
+
+function getQuestion() {
+    content.textContent = "";
+    result.textContent = "";
+    var currentQuestion = myQuestions[currentQuestionIndex];
+    score.textContent = currentScore;
+    timer.textContent = timeLeft;
+
+    for( var i = 0; i < currentQuestion.length; i++) {
+        var choiceButton = document.createElement("button");
+        choiceButton.setAttribute('value', currentQuestion.choices[i];
+        choiceButton.textContent = currentQuestion.choices[i];
+        choiceButton.onclick = choiceSelect;
+        content.appendChild(choiceButton);
+    }
+
+}
+
 //This is the quiz timer
 //function startTimer(duration, display){
 //    var timer 
