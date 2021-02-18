@@ -1,13 +1,15 @@
 var main = document.getElementById('main');
 var startButton = document.getElementById('startBtn');
-var timer = document.getElementById('timer');
-var score = document.getElementById('score');
-var result = document.getElementById('result');
+var timer = document.getElementById('#timer');
+var score = document.getElementById('#score');
+var result = document.getElementById('#result');
+var header = document.getElementById('#header');
 var enterStats = document.getElementById('hs-text').style.visibility = "hidden";
 var highScores = document.getElementById('hScores');
 var hsList = [];
 var currentScore = 0;
 var timeLeft = 30;
+
 
 // this is the array of questions that will be used
 var myQuestions = [
@@ -79,43 +81,62 @@ function getQuestion() {
 
 }
 
-//This is the quiz timer
-//function startTimer(duration, display){
-//    var timer 
-//    var countdown 
+//this function gives player score and moves the game along to conclusion
+function choiceSelect(){
+    if(this.value !==myQuestions[currentQuestionIndex].correctAnswer){
+        result.textContent = "What're you talking about!? Go home, you're drunk.";
 
-
-
-
-function generateQuiz(questions, quizContainer, resultsContainer, submitBtn){
-    function showQuestions(questions, quizContainer){
-        //questions here
-
-        var output = [];
-        var answers;
-
-        for(var i=0; i < questions.length; i ++){
-
-            //reset the answer list
-            answers =[];
-
-
-
-        }
+    }else {
+        currentScore + 10;
+        result.textContent = "Well done. I see you are a person of fine tastes. Point for you!"
 
     }
+    //question index iterates
+    currentQuestionIndex++;
+    if(currentQuestionIndex ===myQuestions.length) {
+        gameOver();
+    }
+    else {
+        getQuestion();
+    }
+};
+//game timer, resets at 0, informs user
+function startTimer() {
+    var timeInterval = setInterval(function(){
+        timer.textContent = timeLeft = "seconds left";
+        timeLeft--;
 
+        if(timeLeft === 0) {
+            timer.textContent = "Yer outta time there bucko."
+            clearInterval(timeInterval);
+            gameOver();
+        }
+    },1000);
 }
+//this resets the game, tells the user the game is over and displays user name and score
+function gameOver() {
+    result.textContent = "";
+    timer.textContent = "";
+    header.textContent = "Seems like you're finished";
+    content.textContent = "Record your name for the ages";
+    score.textContent = "Your Score: " + currentScore;
+    showForm();
+    
+};
 
-function showResults(questions, quizContainer){
-    // this will contain the user's choces and display score at the end
+function renderScores(){
+    for (var i = 0; i < scoreList.length; i++) {
+        var newScore = scoreList[i];
+
+        var li = document.createElement ("li");
+        li.textContent = newScore;
+        li.setAttribute("data-index", i);
+        highScores.appendChild(li);
+    };
+};
+
+function showForm() {
+    document.getElementById("hs-text").style.visibility = "visible";
+
+    
 }
-
-showQuestions(questions, quizContainer);
-
-//button to submit answers and get score
-submitButton.onclick = function(){
-    showResults(questions,quizContainer, resultsContainer);
-}
-
-
