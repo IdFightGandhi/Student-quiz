@@ -1,4 +1,11 @@
-// make an array of questions
+var main
+
+
+
+
+
+
+// this is the array of questions that will be used
 var myQuestions = [
     {
         question1: "What is the most annoying TV series ever written?",
@@ -47,12 +54,10 @@ var myQuestions = [
 
     }
 ];
-
-function showQuiz(questions, quizContainer){
-    //this will store answer choices and show the quiz
-    
-}
-
+//This is the quiz timer
+//function startTimer(duration, display){
+//    var timer 
+//    var countdown 
 
 
 
@@ -60,6 +65,19 @@ function showQuiz(questions, quizContainer){
 function generateQuiz(questions, quizContainer, resultsContainer, submitBtn){
     function showQuestions(questions, quizContainer){
         //questions here
+
+        var output = [];
+        var answers;
+
+        for(var i=0; i < questions.length; i ++){
+
+            //reset the answer list
+            answers =[];
+
+
+
+        }
+
     }
 
 }

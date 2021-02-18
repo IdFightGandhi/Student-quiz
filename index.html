@@ -5,11 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<!--This is the content container-->
 <body>
-    <header class = "header-wrapper">
-        <h1>Student Quiz</h1>
-        <button id="start-quiz">Start Quiz</button>
-    </header>
+    <h1>Student Quiz About Stuff</h1>
+    <main>
+        <h2 id = "instructions">
+            <ul>Click the Stat button to begin.
+                <li>You have 30 seconds to complete this extremely difficult quiz.</li>
+                <li>You must get a perfect score to pass as this is an extremely difficult test, don't you know?</li>
+                
+            </ul>
+            <button id="start-quiz">Start Quiz</button> 
+            <br>
+            <br>
+        </h2>
+        <input type ="text" placeholder="Enter Name and High Score" name = "hs-text" id = "hs-text">
+        <div id = "timer"></div>
+        <div id = "score"></div>
+        <div id = "result"></div>
+        <ul>
+            <button id = "highScoreButton" value = "High Score!" value = "View High Scores"></button>
+        </ul>
+        <script src ="script.js"></script>   
+    </main>
+    
+
+        
+
     <div id="quiz-container">
     <button id="submit">Submit</button>
         <span id = "timer">1:00</span>
