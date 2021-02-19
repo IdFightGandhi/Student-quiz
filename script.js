@@ -1,20 +1,23 @@
-var main = document.getElementById('main');
-var startButton = document.getElementById('startBtn');
-var timer = document.getElementById('#timer');
-var score = document.getElementById('#score');
-var result = document.getElementById('#result');
-var header = document.getElementById('#header');
-var enterStats = document.getElementById('hs-text').style.visibility = "hidden";
-var highScores = document.getElementById('hScores');
+var main = document.getElementById("main");
+var startButton = document.getElementById("startBtn");
+var timer = document.getElementById('timer');
+var score = document.getElementById('score');
+var result = document.getElementById('result');
+var enterStats = document.getElementById("hs-text").style.visibility = "hidden";
+var highScores = document.getElementById("hScores");
 var hsList = [];
 var currentScore = 0;
 var timeLeft = 30;
+var qusetionIndex = 0;
+var hostHeader = document.getElementById("hostHeader");
+var instructions = document.getElementById("instructions");
 
+//
 
 // this is the array of questions that will be used
 var myQuestions = [
     {
-        question1: "What is the most annoying TV series ever written?",
+        question: "What is the most annoying TV series ever written?",
         answers: {
 
             a: "Gossip Girl",
@@ -23,9 +26,11 @@ var myQuestions = [
             d: "A guy on Public Access screaming at you",
             e: "Game of Thrones"
         },
-        correctAnswer: 'e',
+        correctAnswer: 'Game of Thrones'
+    },
+    {
 
-        question2: "Who was the worst person in the popular Netflix documentary, 'Tiger King'",
+        question: "Who was the worst person in the popular Netflix documentary, 'Tiger King'",
         answers: {
 
             a: "Carole Baskin",
@@ -34,9 +39,11 @@ var myQuestions = [
             d: "That weird guy who owned the other Exotic Zoo but like, it was a sex cult...?",
             e: "Game of Thrones"
         },
-        correctAnswer: 'e',
+        correctAnswer: 'e'
+    },
+    {
 
-        question3: "What is the worst flavor of Gatorade?",
+        question: "What is the worst flavor of Gatorade?",
         answers: {
 
             a: "Cherry",
@@ -46,8 +53,9 @@ var myQuestions = [
             e: "Game of Thrones"
         },
         correctAnswer: 'e',
-
-        question4: "Which of these is a primary cause of Climate Change?",
+    },
+    {
+        question: "Which of these is a primary cause of Climate Change?",
         answers: {
 
             a: "Car Emissions",
@@ -61,20 +69,25 @@ var myQuestions = [
     }
 ];
 
+
+
 // This function will be the index for the question set
-var currentQuestionIndex = 0;
+//var currentQuestionIndex = 0;
 
 function getQuestion() {
-    content.textContent = "";
-    result.textContent = "";
-    var currentQuestion = myQuestions[currentQuestionIndex];
-    score.textContent = currentScore;
-    timer.textContent = timeLeft;
 
-    for( var i = 0; i < currentQuestion.length; i++) {
+    hostHeader.style.display = "none";
+    instructions.style.display = "none";
+    
+
+    startTimer();
+   
+
+    for(var i = 0; i < myQuestions.answers.length; i++) {
+        //myQuestions.question.style.display ="block";
         var choiceButton = document.createElement("button");
-        choiceButton.setAttribute('value', currentQuestion.choices[i];
-        choiceButton.textContent = currentQuestion.choices[i];
+        choiceButton.setAttribute('data-answers', myQuestions.answers[i]);
+        choiceButton.textContent = myQuestions.answers[i];
         choiceButton.onclick = choiceSelect;
         content.appendChild(choiceButton);
     }
@@ -135,29 +148,26 @@ function renderScores(){
     };
 };
 
-function showForm() {
-    document.getElementById("hs-text").style.visibility = "visible";
+// //function showForm() {
+//     document.getElementById("hs-text").style.visibility = "visible";
 
-    var submitBtn = document.createElement("button");
-    submitBtn.textContent = "Submit"
-    highScores.appendChild(submitBtn);
-    startButton.addEventListener("submit", function(event) {
-        event.preventDefault
-        var highScoreText = highScores.value;
+//     var submitBtn = document.createElement("button");
+//     submitBtn.textContent = "Submit"
+//     highScores.appendChild(submitBtn);
+//     startButton.addEventListener("submit", function(event) {
+//         event.preventDefault
+//         var highScoreText = highScores.value;
 
-        if(highScoreText === "") {
-            return;
-        };
+//         if(highScoreText === "") {
+//             return;
+//         };
 
-        scoreList.push(highScoreText);
-        enterInfo.value = ""
-    });
+//         scoreList.push(highScoreText);
+//         enterInfo.value = ""
+//     });
 
-    startButton.addEventListener("click", function() {
-        content.textContent = "";
-        getQuestion();
-        startTimer();
-    });
+    startButton.addEventListener("click",getQuestion);  
+       
 
 
-}
+

@@ -4,31 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <!--This is the content container-->
 <body>
+
     <h1>Student Quiz About Stuff</h1>
-    <main>
-        <h2 id ="header">
+
+    <h2 id ="hostHeader">
             "How cultured are you really? Let's find out..."
-        </h2>
-        <h2 id = "instructions">
-            <ul>Click the Stat button to begin.
+    </h2>
+
+    <main>
+        
+        <section id = "instructions">
+
+            <ul>Click the Start button to begin.
                 <li>You have 30 seconds to complete this extremely difficult quiz.</li>
                 <li>You must get a perfect score to pass as this is an extremely difficult test, don't you know?</li>
                 
             </ul>
-            <button id="startBtn">Start Quiz</button> 
+
+            <button id="startBtn">Start Quiz</button>
+
             <br>
             <br>
-        </h2>
-        <input type ="text" placeholder="Enter Name and High Score" name = "hs-text" id = "hs-text">
+
+        </section>
+
+        <input type ="text" placeholder="What's ya name?" name = "hs-text" id = "hs-text">
         <div id = "timer"></div>
         <div id = "score"></div>
         <div id = "result"></div>
-        <ul>
-            <button id = "highScoreButton" value = "View High Scores"></button>
-        </ul>
+        
         <script src ="script.js"></script>   
     </main>
 

@@ -1,0 +1,16 @@
+body {
+    background-color:#659DBD;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+
+};
+
+h1 {
+    color:goldenrod;
+    margin:10px, auto;
+
+};
