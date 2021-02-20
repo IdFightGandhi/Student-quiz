@@ -1,15 +1,11 @@
 # Student-quiz
 Homework 3
 
+I spent a long time trying to make this work but had a really difficult time even with my tutor. Looking back, I think I got lost in the weeds when tying to assemble all of the various pieces I would need for this project. I think doing more algorithms and understanding better how to break down these little puzzles will help me to put things together better.
 
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and my score
+This was supposed to be a simple, 4 question quiz with the questions displaying as buttons that would store the user input and record the score for correct answers. 
+
+Unfotunately, I got stuck when trying to get the questions to display and run that held me back.
+
+I will attempt to try this again at a later date.
+
