@@ -11,6 +11,15 @@ var timeLeft = 30;
 var qusetionIndex = 0;
 var hostHeader = document.getElementById("hostHeader");
 var instructions = document.getElementById("instructions");
+var questions = document.getElementById("questions");
+var j = 0;
+var btnA = document.getElementById("a");
+var btnB = document.getElementById("b");
+var btnC = document.getElementById("c");
+var btnD = document.getElementById("d");
+var btnE = document.getElementById("e");
+
+
 
 //
 
@@ -18,57 +27,52 @@ var instructions = document.getElementById("instructions");
 var myQuestions = [
     {
         question: "What is the most annoying TV series ever written?",
-        answers: {
-
+        
             a: "Gossip Girl",
             b: "How I Met Your Mother",
             c: "The Big Bang Theory",
             d: "A guy on Public Access screaming at you",
-            e: "Game of Thrones"
-        },
+            e: "Game of Thrones",
+        
         correctAnswer: 'Game of Thrones'
     },
     {
 
         question: "Who was the worst person in the popular Netflix documentary, 'Tiger King'",
-        answers: {
-
+        
             a: "Carole Baskin",
             b: "Joe Exotic",
             c: "Allen Glover",
             d: "That weird guy who owned the other Exotic Zoo but like, it was a sex cult...?",
-            e: "Game of Thrones"
-        },
+            e: "Game of Thrones",
+        
         correctAnswer: 'e'
     },
     {
 
         question: "What is the worst flavor of Gatorade?",
-        answers: {
 
             a: "Cherry",
             b: "Cucumber-Lime",
             c: "Blueberry",
             d: "Strrawberry",
-            e: "Game of Thrones"
-        },
+            e: "Game of Thrones",
+
         correctAnswer: 'e',
     },
     {
         question: "Which of these is a primary cause of Climate Change?",
-        answers: {
 
             a: "Car Emissions",
             b: "Transport Ships",
             c: "Industrial Farms",
             d: "Fossil Fuels",
-            e: "Game of Thrones"
-        },
+            e: "Game of Thrones",
+
         correctAnswer: 'e',
 
     }
 ];
-
 
 
 // This function will be the index for the question set
@@ -78,21 +82,36 @@ function getQuestion() {
 
     hostHeader.style.display = "none";
     instructions.style.display = "none";
-    
+    // questions.style.display = "block";
+
 
     startTimer();
-   
 
-    for(var i = 0; i < myQuestions.answers.length; i++) {
-        //myQuestions.question.style.display ="block";
-        var choiceButton = document.createElement("button");
-        choiceButton.setAttribute('data-answers', myQuestions.answers[i]);
-        choiceButton.textContent = myQuestions.answers[i];
-        choiceButton.onclick = choiceSelect;
-        content.appendChild(choiceButton);
+    var randomQ = Math.floor(Math.random() * myQuestions.length);
+    console.log(randomQ);
+    questions.textContent = myQuestions[j].question;
+    btnA.textContent = myQuestions[j].a;
+    console.log(btnA);
+    btnB.textContent = myQuestions[j].b;
+    btnC.textContent = myQuestions[j].c;
+    btnD.textContent = myQuestions[j].d;
+    btnE.textContent = myQuestions[j].e;
+
+
+
+    // for(var i = 0; i < myQuestions.answers.length; i++) {
+    //     //myQuestions.question.style.display ="block";
+    //     console.log(myQuestions.answers[i]);
+    //     var choiceButton = document.createElement("button");
+    //     choiceButton.setAttribute('data-answers', myQuestions.answers[i]);
+    //     choiceButton.textContent = myQuestions.answers[i];
+    //     choiceButton.onclick = choiceSelect;
+    //     //content.appendChild(choiceButton);
+    //     questions.append(choiceButton);
+
     }
 
-}
+//}
 
 //this function gives player score and moves the game along to conclusion
 function choiceSelect(){

@@ -14,3 +14,13 @@ h1 {
     margin:10px, auto;
 
 };
+
+button .a, .b, .c, .d, .e {
+
+    height: auto;
+    width: auto;
+    background-color: hotpink;
+
+    display:none;
+
+}
