@@ -1,79 +1,82 @@
-var questions = [
-    {
-        Question:"Which bear is best?",
-        Answers:["Black Bear","Brown Bear","Polar Bear","Battlestar Galactica"],
-        Correct:"Battlestar Galactica"
-    },
-    {
-        Question:"Why is Game of Thrones the best TV show ever?",
-        Answers:["Writing","Characters","Nudity","It Isn't"],
-        Correct:"It Isn't"
-    },
-    {
-        Question:"Which of these is not a city?",
-        Answers:["Seattle","Shanghai","Sidney","Weed"],
-        Correct:["Sidney"]
-    },
-    {
-        Question:"How many licks does it take to get to the center of a tootsie-roll pop?",
-        Answers:["415","364","522","The World May Never Know"],
-        Correct:["Battlestar Galactica"]
-    },
-    
-]
-//need timer and time bank
-var timer;
-var time = 60;
-var current = 0;
+var timeEl = document.querySelector(".timer");
+var highscoreButton = document.querySelector("#highscores");
+var startButton = document.querySelector("#start-button");
+var header = document.querySelector("h1");
+var mainEl = document.querySelector("main");
 
-//function to start quiz
-function startQuiz() {
-    var start = document.getElementById('start')
-    var answersDiv = document.querySelector(".answers")
-    answersDiv.getElementsByClassName.display='block'
-    start.style.display="none";
-    document.getElementById("timer").textContent=time;
-    timer.setInterval(runTimer,1000)
-    console.log("startQuiz")
-    runQuiz()
+
+var question1 = {
+    question: "Who likes short shorts?",
+    choices: ["We do", "You do", "I do", "They do"],
+    answer: "We do"
+}
+        
+var question2 = {
+    question: "What is the best berry",
+    choices: ["Straw", "Blue", "Rasp", "Black"],
+    answer: "Straw"
 
 }
+var question3 = {
+    question: "Do you have $20 dollars?",
+    choices: ["Yes", "No", "Maybe", "I can give you about $3.50"],
+    answer: "I can give you about $3.50"
+}
+var question4 = {
+    question: "Is this quiz over?",
+    choices: ["Probably", "Why are you asking me?", "Yes", "No"],
+    answer: "Probably"
+
+}
+var questions = [
+    question1, question2, question3, question4
+]
+var secondsLeft = 60;
+var correct = 0; 
+var incorrect = 0;
+
+startButton.addEventListener("click", function() {
+    var header = document.querySelector("h1");
+    header.remove();
+    startButton.remove();
+    timeLeft();
+    askQuestions();
+    showChoices();
+    
+});
+
+//need timer and time bank
+var timer = setInterval(function() {
+    secondsLeft--;
+    timeEl.textContent = secondsLeft + " seconds left ";
+    console.log
+    if(secondsLeft === 0) {
+        clearInterval(timer);
+        // endQuiz();
+    }
+    
+}, 1000);
+return;
+
+//function to start quiz
+
+
+
+// function startQuiz() {
+//     var start = document.getElementById('start')
+//     var answersDiv = document.querySelector(".answers")
+//     answersDiv.getElementsByClassName.display='block'
+//     start.style.display="none";
+//     document.getElementById("timer").textContent=time;
+//     timer.setInterval(runTimer,1000)
+//     console.log("startQuiz")
+//     runQuiz()
+
+// }
 
 //make function to get questions and match with answers
 
-function runQuiz(){
 
-    var i = current
-    document.querySelector(".question").textContent=questions[i].Question
-    document.querySelector("#Choice1").textContent=questions[i].Answers[0]
-    document.querySelector("#Choice2").textContent=questions[i].Answers[1]
-    document.querySelector("#Choice3").textContent=questions[i].Answers[2]
-    document.querySelector("#Choice4").textContent=questions[i].Answers[3]
-
-}
 
 //timer function
 
-function runTimer(){ 
-    time--
-    document.getElementById("timer").textContent=time;}
-    
-    function checkAnswer(event){
-    console.log("works");
-    var i = current
-    var correct = questions[i].Correct
-    var userChoice=event.target.textContent
-    if (correct!==userChoice){
-    time=time-10 
-    document.getElementById("timer").textContent=time;
-    }
-     current++
-     if (current < questions.length){
-      runQuiz()  
-    
-     }else{
-         console.log("GameOver!!");
-         clearInterval(timer);
-     }
-     
-    }
