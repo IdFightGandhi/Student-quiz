@@ -45,20 +45,20 @@ startButton.addEventListener("click", function() {
     
 });
 
-//need timer and time bank
-var timer = setInterval(function() {
-    secondsLeft--;
-    timeEl.textContent = secondsLeft + " seconds left ";
-    console.log
-    if(secondsLeft === 0) {
-        clearInterval(timer);
-        // endQuiz();
-    }
-    
-}, 1000);
-return;
+function timeLeft() {
+    var timer = setInterval(function() {
+        secondsLeft--;
+        timeEl.textContent = secondsLeft + " seconds left ";
+        console.log
+        if(secondsLeft === 0) {
+            clearInterval(timer);
+            // endQuiz();
+        }
+        
+    }, 1000);
+    return;
+};
 
-//function to start quiz
 var questionIndex = 0;
 var questionBox = questions[questionIndex];
 console.log(questions[questionIndex].question);
@@ -70,7 +70,6 @@ function askQuestions() {
     mainEl.appendChild(questionElement);
     console.log(questionElement);
 }
-
 function showChoices () {
     var choicesBox = questions[questionIndex]
     for(var j=0; j< choicesBox.choices.length; j++) {
@@ -80,8 +79,38 @@ function showChoices () {
       mainEl.appendChild(choicesElement);
    
    } 
-}
+   }
 
+mainEl.addEventListener("click", function(event) {
+    console.log(event)
+    if(event.target.className === "choices") {
+        // questionIndex is = to the final length of the array set questionIndex to the length of the array
+       
+            console.log(event.target.textContent)
+            var userChoice = event.target.textContent
+            if(userChoice === questionBox.answer) {
+                console.log("correct");
+                correct++;
+                questionIndex++
+                mainEl.innerHTML = ""
+                askQuestions();
+                showChoices();
+            }
+            else {
+                console.log("incorrect");
+                incorrect++;
+                secondsLeft -= 5;
+                mainEl.innerHTML = ""
+                questionIndex++;
+                askQuestions();
+                showChoices(); 
+            } 
+    }
+    if(questionIndex > questions.length) {
+        return;
+     }
+    
+})
 
 // function startQuiz() {
 //     var start = document.getElementById('start')
