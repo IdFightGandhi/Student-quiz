@@ -30,6 +30,26 @@ var current = 0;
 function startQuiz() {
     var start = document.getElementById('start')
     var answersDiv = document.querySelector(".answers")
-    
+    answersDiv.getElementsByClassName.display='block'
+    start.style.display="none";
+    document.getElementById("timer").textContent=time;
+    timer.setInterval(runTimer,1000)
+    console.log("startQuiz")
+    runQuiz()
 
 }
+
+//make function to get questions and match with answers
+
+function runQuiz(){
+
+    var i = current
+    document.querySelector(".question").textContent=questions[i].Question
+    document.querySelector("#Choice1").textContent=questions[i].Answers[0]
+    document.querySelector("#Choice2").textContent=questions[i].Answers[1]
+    document.querySelector("#Choice3").textContent=questions[i].Answers[2]
+    document.querySelector("#Choice4").textContent=questions[i].Answers[3]
+
+}
+
+//timer function
