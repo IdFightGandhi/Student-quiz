@@ -59,7 +59,28 @@ var timer = setInterval(function() {
 return;
 
 //function to start quiz
+var questionIndex = 0;
+var questionBox = questions[questionIndex];
+console.log(questions[questionIndex].question);
+function askQuestions() {
+    
+    // for(var i=0; i < questionBox.question.length; i++)
+    var questionElement = document.createElement("h2");
+    questionElement.textContent = (questions[questionIndex].question);
+    mainEl.appendChild(questionElement);
+    console.log(questionElement);
+}
 
+function showChoices () {
+    var choicesBox = questions[questionIndex]
+    for(var j=0; j< choicesBox.choices.length; j++) {
+      var choicesElement = document.createElement("button");
+      choicesElement.setAttribute("class", "choices");
+      choicesElement.textContent = choicesBox.choices[j];
+      mainEl.appendChild(choicesElement);
+   
+   } 
+}
 
 
 // function startQuiz() {

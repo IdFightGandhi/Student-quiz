@@ -4,35 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Quiz</title>
-
-    <link rel="stylesheet" href="./css/style.css">
+    <title>Quiz of Amazing Knowledge</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    
-    <div class="high-scores">
-        <a href="scores.html">View High Scores</a>
-    </div>
-    <div id="timer"></div>
-    <main id="start">
-        <header class= "Header">
-            <h1>Javascript Quiz</h1>
-        </header>
-        <p class="info">Answer the questions to the best of your ability within the allotted time. 
-            Ten secoonds will be deducted from your score for every incorrect answer.
-        </p>
-        <button class="button" id="start-btn">Start Quiz</button>
+    <nav>
+        <button id="highscores">VIEW HIGHSCORES</button>
+        <h3 class="timer">Time Left:</h3>
+    </nav>
+    <main>
+        <h1>Hey! It's a quiz of stuff!</h1>
+        <button id="start-button">Start Here</button>
+        
     </main>
-
-    <div class="quiz">
-        <h2 class="question"></h2>
-        <ul class="answers">
-            <button onClick="checkAnswer(event)"id="Choice1"></button>
-            <button onClick="checkAnswer(event)"id="Choice2"></button>
-            <button onClick="checkAnswer(event)"id="Choice3"></button>
-            <button onClick="checkAnswer(event)"id="Choice4"></button>
-        </ul>
-    </div>
-    <script src="./script.js"></script>
+<script src="assets/script.js"></script>
 </body>
 </html>
