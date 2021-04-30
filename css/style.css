@@ -1,1 +1,91 @@
+* {    
+    box-sizing: border-box;
+    /* background-image: url(../images/USMC-Background.png);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /* min-height: 100%; */
+    /* min-width:1024px;
+    width:100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0; */
+
+}
+
+body {
+    display:block;
+    padding: 50px;
+    text-align: center;
+    flex-direction: column;
+    background-image:url(../images/USMC-Background.png);
+    font-family: 'Roboto', sans-serif;
+    background-size: cover;
+    
+}
+
+.main {
+    padding: 50px;
+    margin:100px;
+    display:block;
+    text-align: center;
+}
+
+.High-scores {
+    text-align: left;
+}
+
+h1 {
+    color:coral;
+    
+}
+
+
+
+#start-quiz {
+    background-color: darkgreen;
+    
+}
+
+
+.button {
+    display: inline-block;
+    height: 40px;
+    width: 200px;
+    color: white;
+    font-size: 20px;
+    background-color: blue;
+    border: 2px white solid;
+    border-radius: 10px;
+    
+}
+
+p {
+    color: darkgreen;
+}
+
+#timer {
+    color:white;
+    float:right;
+}
+
+.question {
+    color:red;
+}
+
+.answers {
+    display: none;
+}
+
+
+.answers button {
+    color: white;
+    background-color: black;
+
+}
+
+
+
 

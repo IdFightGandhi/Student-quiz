@@ -53,3 +53,27 @@ function runQuiz(){
 }
 
 //timer function
+
+function runTimer(){ 
+    time--
+    document.getElementById("timer").textContent=time;}
+    
+    function checkAnswer(event){
+    console.log("works");
+    var i = current
+    var correct = questions[i].Correct
+    var userChoice=event.target.textContent
+    if (correct!==userChoice){
+    time=time-10 
+    document.getElementById("timer").textContent=time;
+    }
+     current++
+     if (current < questions.length){
+      runQuiz()  
+    
+     }else{
+         console.log("GameOver!!");
+         clearInterval(timer);
+     }
+     
+    }
