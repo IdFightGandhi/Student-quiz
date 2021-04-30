@@ -21,3 +21,15 @@ var questions = [
     },
     
 ]
+//need timer and time bank
+var timer;
+var time = 60;
+var current = 0;
+
+//function to start quiz
+function startQuiz() {
+    var start = document.getElementById('start')
+    var answersDiv = document.querySelector(".answers")
+    
+
+}
